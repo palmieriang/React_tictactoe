@@ -13,14 +13,20 @@ class Board extends Component {
   constructor() {
     super();
     this.state = {
-      squares: Array(9).fill(null),
+      squares: [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+      ],
       xIsNext: true
     }
   }
 
   handleClick(i) {
+    console.log(i)
     const squares = this.state.squares.slice()
     squares[i] = this.state.xIsNext ? 'X' : 'O'
+    console.log(squares)
     this.setState({
       squares: squares,
       xIsNext: !this.state.xIsNext
@@ -101,3 +107,4 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
