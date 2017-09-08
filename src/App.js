@@ -40,6 +40,7 @@ class Board extends Component {
       ],
       xIsNext: true
     }
+    this.restart = this.restart.bind(this)
   }
 
   onClick(squareIndex) {
@@ -58,6 +59,17 @@ class Board extends Component {
     })
   }
 
+  restart() {
+    this.setState({
+      squares: [
+        null, null, null,
+        null, null, null,
+        null, null, null
+      ],
+      xIsNext: true
+    })
+  }
+
   render() {
     const {squares, xIsNext} = this.state
     const winner = calculateWinner(squares)
@@ -71,11 +83,10 @@ class Board extends Component {
             <Square key={index} value={square} onClick={() => this.onClick(index)}/>
           ))}
         </div>
+        <button onClick={this.restart}>Restart</button>
       </div>
     );
   }
 }
 
 export default Board
-
-
