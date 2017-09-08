@@ -75,15 +75,15 @@ class Board extends Component {
     const winner = calculateWinner(squares)
 
     return (
-      <div>
+      <div className="container">
         {winner && <div className="status">Winner: {winner} </div>}
         {!winner && <div className="status">Next player: {(xIsNext ? 'X' : 'O')}</div>}
         <div className="board">
           {squares.map((square, index) => (
-            <Square key={index} value={square} onClick={() => this.onClick(index)}/>
+            <Square className="square" key={index} value={square} onClick={() => this.onClick(index)}/>
           ))}
         </div>
-        <button onClick={this.restart}>Restart</button>
+        <button className="main-button" onClick={this.restart}>Restart</button>
       </div>
     );
   }
