@@ -10,6 +10,7 @@ ol, ul {
 .container {
   background-color: #333333;
   text-align: center;
+  padding: 20px;
 }
 
 .status {
@@ -28,7 +29,7 @@ ol, ul {
   width: calc(100% / 3 - 2px);
   height: 80px;
   background: #fff;
-  color: #333333;  
+  color: #333333;
   padding: 0;
   margin: 1px;
   border: 1px solid #999;
