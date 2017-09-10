@@ -47,14 +47,22 @@ class Board extends Component {
     const {squares, xIsNext} = this.state
 
     const updatedSquares = squares.map((square, index) => {
-      if (index === squareIndex) {
+      if (index === squareIndex && square === null) {
+        this.nextPlayer();
         return xIsNext ? 'X' : 'O'
       }
       return square
     })
 
     this.setState({
-      squares: updatedSquares,
+      squares: updatedSquares
+    })
+  }
+
+  nextPlayer() {
+    const {xIsNext} = this.state
+
+    this.setState({
       xIsNext: !xIsNext
     })
   }
