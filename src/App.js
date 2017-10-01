@@ -45,22 +45,25 @@ class Board extends Component {
 
   onClick(squareIndex) {
     const {squares, xIsNext} = this.state
+    const winner = calculateWinner(squares)
 
-    const updatedSquares = squares.map((square, index) => {
-      if (index === squareIndex && square === null) {
-        this.nextPlayer();
-        return xIsNext ? 'X' : 'O'
-      }
-      return square
-    })
+    if (!winner) {
+      const updatedSquares = squares.map((square, index) => {
+        if (index === squareIndex && square === null) {
+          this.nextPlayer();
+          return xIsNext ? 'X' : 'O'
+        }
+        return square
+      })
 
-    this.setState({
-      squares: updatedSquares
-    })
+      this.setState({
+        squares: updatedSquares
+      })
+    }
   }
 
   nextPlayer() {
-    const {xIsNext} = this.state
+    const {squares, xIsNext} = this.state
 
     this.setState({
       xIsNext: !xIsNext
